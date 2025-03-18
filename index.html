@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo 3D - Cerebro</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .info-contenedor {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+        }
+        .info-contenedor img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .info-contenedor button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .seccion-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+        }
+        .seccion-cuadrada {
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            overflow-y: auto;
+        }
+        .seccion {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            position: absolute;
+        }
+        .logo-wba {
+            top: 10px;
+            left: 10px;
+            width: 290px; 
+        }
+        .logo-utc {
+            top: 10px;
+            right: 10px;
+            width: 180px;
+        }
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .gif-container img {
+            width: 400px; 
+            height: 250px;
+            object-fit: cover;
+        }
+        .mision-texto {
+            max-height: 200px; 
+            overflow-y: auto; 
+        }
+    </style>
+</head>
+<body>
+    <img src="wba.jpg" alt="WBA" class="logo logo-wba">
+    <img src="utc.jpg" alt="UTC" class="logo logo-utc">
+    
+    <h1>BOXEO MUNDIAL </h1>
+    <h1>ASOCIACIÓN</h1>
+    <h1 class="subtitulo">DESDE 1921</h1>
+    <h1 class="subtitulo">Como la organización más representativa del boxeo profesional,donde la correcta aplicacion de los principios...</h1>
+    
+    <div class="seccion" id="objetivo">
+        <h2>Objetivo de la Empresa</h2>
+        <p>Su objetivo principal es regular, promover y sancionar combates de boxeo profesional en diferentes categorías de peso, asegurando el cumplimiento de reglas justas y garantizando la transparencia en los rankings y campeonatos.</p>
+        <p>Además, la WBA trabaja en el desarrollo del boxeo a nivel global, fomentando el crecimiento del deporte y promoviendo valores como el respeto y la disciplina en los atletas.</p>
+    </div>
+    <h1>Visualización Del Cerebro y Sus Partes Mas Afectadas En El Combate</h1>
+    <div class="imagen-contenedor">
+        <img src="cerebro.png" alt="Cerebro" width="600">
+        <div class="botones">
+            <button onclick="mostrarInfo('Corteza Motora', 'cortezamotora.jpg', 'Se encarga de los movimientos del cuerpo. Su daño puede hacer que una persona no pueda mover bien sus brazos o piernas.')">Corteza Motora</button>
+            <button onclick="mostrarInfo('Corteza Prefrontal', 'cortezaprefrontal.jpg', 'Controla la toma de decisiones, la personalidad y el comportamiento. Si se daña, la persona puede tener cambios de humor y problemas para razonar.')">Corteza Prefrontal</button>
+            <button onclick="mostrarInfo('Tálamo', 'talamo.jpg', 'Actúa como un centro de control para los sentidos y el movimiento. Si se afecta, la persona puede tener dificultades para moverse o para procesar lo que ve y siente.')">Tálamo</button>
+            <button onclick="mostrarInfo('Hipocampo', 'hipocampo.jpg', 'Es clave para la memoria y el aprendizaje. Su daño puede hacer que la persona tenga problemas para recordar cosas nuevas.')">Hipocampo</button>
+            <button onclick="mostrarInfo('Corteza Sensorial', 'cortezasensorial.jpg', 'Permite sentir el tacto, el dolor y la temperatura en el cuerpo. Si se daña, algunas partes del cuerpo pueden perder sensibilidad.')">Corteza Sensorial</button>
+            <button onclick="mostrarInfo('Tronco Encefálico', 'troncoencefalico.jpg', 'Regula funciones vitales como la respiración y el ritmo cardíaco. Un daño en esta zona puede poner en riesgo la vida o hacer que una persona dependa de máquinas para vivir.')">Tronco encefálico</button>
+            <button onclick="mostrarInfo('Cuerpo Calloso', 'cuerpocalloso.jpg', 'Conecta los dos lados del cerebro para que trabajen juntos. Si se ve afectado, puede haber problemas de coordinación y procesamiento de información.')">Cuerpo calloso</button>
+        </div>
+    </div>
+    
+    <div class="seccion-container">
+        <div class="seccion-cuadrada" id="vision">
+            <h2>Visión</h2>
+            <p>Ser la organización más representativa del boxeo profesional, donde la correcta aplicación de los principios fundamentales de ética, moral, lealtad, honestidad y buena fe son considerados los valores principales que orientan toda actividad legítima del boxeo profesional a nivel mundial.</p>
+            <p>Se dedica a la promoción y servicio del deporte del boxeo en todas sus formas, implementando medidas de seguridad para la protección de los boxeadores.</p>
+        </div>
+        <div class="seccion-cuadrada" id="mision">
+            <h2>Misión</h2>
+            <div class="mision-texto">
+                <p>El Cristal del Espejo donde todas las acciones colectivas encuentran su fiel reflejo para alcanzar las metas trazadas, donde siempre se encuentran la verdad, el prestigio y la autoridad que identifican a la ASOCIACIÓN MUNDIAL DE BOXEO.</p>
+                <p>Con el propósito de mantener su integridad y fortalecer su autonomía, mediante la acción concertada de todos sus miembros, actuando en el marco de los principios fundamentales contenidos en esta Constitución; en concordancia con las demás Disposiciones Jurídicas que la integran, para crear y promover el Boxeo Profesional y, en especial, las materias directamente relacionadas con los boxeadores.</p>
+                <p>Cooperar con cualquier Entidad, Organización o persona natural o jurídica relacionada con la Actividad del Boxeo en aquellos países donde esta actividad sea solidariamente apoyada, contenida en sus ordenamientos jurídicos, y lograr fines comunes incrementando el Patrimonio Moral de la ASOCIACION MUNDIAL DE BOXEO.</p>
+                <p>Organización de boxeo profesional más antigua y una de las cuatro principales entidades que sancionan combates a nivel mundial. Su misión y visión se centran en promover el boxeo profesional bajo principios éticos y morales.</p>
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+    <div class="gif-container">
+        <img src="fondo.gif" alt="GIF">
+        <div class="seccion-cuadrada">
+            <h2>CÓDIGO DE ÉTICA</h2>
+            <p><strong>Artículo 9.01:</strong> Todos los miembros de la Asociación Mundial de Boxeo se comprometen a cumplir el siguiente Código de Ética:</p>
+            <ul style="text-align: left; padding-left: 20px;">
+                <li>Establecer como norma de conducta la lealtad, la justicia, la integridad y el respeto como valores fundamentales.</li>
+                <li>Proteger la salud integral y el bienestar de los boxeadores.</li>
+                <li>Rechazar acciones contrarias a la justicia y la honestidad en las competencias.</li>
+                <li>Garantizar la ética y la moral en jueces y árbitros.</li>
+                <li>Combatir y erradicar la corrupción en el boxeo.</li>
+                <li>Rechazar y trabajar contra la discriminación por cualquier motivo.</li>
+                <li>Respetar la constitución y leyes de los países afiliados.</li>
+                <li>Defender y respetar los estatutos y reglamentos de la AMB.</li>
+                <li>Utilizar los medios de comunicación para destacar los aspectos positivos del boxeo.</li>
+                <li>Trabajar por la satisfacción del público y fanáticos en armonía con los actores del boxeo.</li>
+                <li>Evitar conductas antiéticas que puedan afectar la moral en el boxeo.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="seccion" id="lesiones-boxisticas">
+        <h2>PORCENTAJE DE LESIONES BOXÍSTICAS EN ESTADOS UNIDOS</h2>
+        <p>Se encontró una incidencia media de <strong>673 lesiones por cada 100,000 personas-año</strong> en las extremidades superiores, siendo las fracturas de mano las más comunes, con <strong>132 casos por cada 100,000 personas por año</strong>.</p>
+        <p>Además, se ha reportado que aproximadamente el <strong>17% de las lesiones en el boxeo</strong> afectan las manos o las muñecas.</p>
+        <p>El boxeo es un deporte que conlleva <strong>riesgos significativos de lesiones cerebrales</strong> debido a los golpes repetidos en la cabeza. Estudios han indicado que entre el <strong>15% y el 40%</strong> de los exboxeadores presentan síntomas de lesiones cerebrales crónicas, como:</p>
+        <ul>
+            <li>Dificultades en el habla</li>
+            <li>Rigidez</li>
+            <li>Temblores</li>
+            <li>Pérdida de memoria</li>
+            <li>Cambios en el comportamiento</li>
+        </ul>
+    </div>
+    <div class="seccion-container">
+        <div class="seccion-cuadrada" id="golpes-no-permitidos">
+            <h2>Golpes No Permitidos</h2>
+            <p>El reglamento del boxeo prohíbe ciertos golpes para proteger la salud de los boxeadores. Su uso puede generar sanciones y lesiones graves.</p>
+    
+            <h3>1. Golpes en la nuca</h3>
+            <p>Pueden afectar la médula espinal y causar conmociones cerebrales.</p>
+    
+            <h3>2. Golpes en los riñones</h3>
+            <p>Provocan dolor crónico y daños internos.</p>
+    
+            <h3>3. Golpes después de la campana</h3>
+            <p>Generan desorientación y sanciones disciplinarias.</p>
+    
+            <h3>4. Cabezazos</h3>
+            <p>Pueden causar fracturas y cortes graves.</p>
+    
+            <h3>5. Golpes por debajo del cinturón</h3>
+            <p>Provocan dolor extremo y descalificación.</p>
+    
+            <h3>6. Uso del codo</h3>
+            <p>Peligroso para la visión y la estructura ósea facial.</p>
+        </div>
+        
+        <div>
+            <img src="etica.jpg" alt="Ética en el Boxeo" style="max-width: 65%; border-radius: 10px;">
+        </div>
+        
+    <div id="info" class="info-contenedor">
+        <h2 id="info-titulo"></h2>
+        <img id="info-img" src="" alt="">
+        <p id="info-texto"></p>
+        <button onclick="cerrarInfo()">Cerrar</button>
+    </div>
+    
+    <script>
+        function mostrarInfo(titulo, imagen, texto) {
+            document.getElementById("info-titulo").innerText = titulo;
+            document.getElementById("info-img").src = imagen;
+            document.getElementById("info-img").alt = titulo;
+            document.getElementById("info-texto").innerText = texto;
+            document.getElementById("info").style.display = "block";
+        }
+
+        function cerrarInfo() {
+            document.getElementById("info").style.display = "none";
+        }
+    </script>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sección Fija</title>
+        <style>
+            body {
+                min-height: 200vh; 
+                margin: 0;
+                padding-bottom: 60px; 
+            }
+    
+            .hecho-por {
+                position: fixed;
+                bottom: -100%; 
+                right: 10px;
+                width: 250px;
+                max-height: 150px; 
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                overflow-y: auto;
+                transition: bottom 0.5s ease-in-out;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            }
+    
+            .hecho-por h2 {
+                font-size: 16px;
+                margin: 0 0 10px;
+            }
+    
+            .hecho-por ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .hecho-por li {
+                margin-bottom: 5px;
+            }
+    
+            .hecho-por p {
+                margin-top: 10px;
+                font-size: 12px;
+            }
+    
+ 
+            .mostrar {
+                bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Sección Fija</title>
+            <style>
+                body {
+                    min-height: 200vh; 
+                    margin: 0;
+                    padding-bottom: 60px; 
+                }
+        
+                .hecho-por {
+                    position: fixed;
+                    bottom: -100%; 
+                    right: 10px;
+                    width: 250px;
+                    max-height: 150px; 
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 10px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    overflow-y: auto;
+                    transition: bottom 0.5s ease-in-out;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                }
+        
+                .hecho-por h2 {
+                    font-size: 16px;
+                    margin: 0 0 10px;
+                }
+        
+                .hecho-por ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+        
+                .hecho-por li {
+                    margin-bottom: 5px;
+                }
+        
+                .hecho-por p {
+                    margin-top: 10px;
+                    font-size: 12px;
+                }
+
+                .mostrar {
+                    bottom: 10px;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <div class="hecho-por" id="hechoPor">
+                <h2>Hecho por</h2>
+                <ul>
+                    <li>Islas Ávila Eduardo - ISC</li>
+                    <li>Jiménez Vega Luis Manuel - ISC</li>
+                    <li>Segundo Cruz Ernesto - ISC</li>
+                    <li>Azuara Córdoba Carol Angélica - AE</li>
+                    <li>Martínez Vázquez Dann - AE</li>
+                    <li>Olvera García Oswaldo Yael - AE</li>
+                    <li>Roldan Diaz Brenda Valeria - AE</li>
+                    <li>Diaz Tierra Leonel Isaac - AE</li>
+                    <li>Pérez Flores Celene Abigail - PS</li>
+                    <li>Zepeda Velasco Diego Alberto - PS</li>
+                </ul>
+                <p><strong>Asignatura:</strong> Ética, Neuroanatomía, Psicología</p>
+            </div>
+        
+            <script>
+                window.addEventListener('scroll', function () {
+                    const section = document.getElementById('hechoPor');
+                    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight) {
+                        section.classList.add('mostrar');
+                    } else {
+                        section.classList.remove('mostrar');
+                    }
+                });
+            </script>
+        
+        </body>
+        </html>
+        
+        <div class="qr-container">
+            <img src="qr.jpg" alt="Código QR">
+        </div>
+        
+        <style>
+            .qr-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .qr-container img {
+                width: 200px; /* Tamaño cuadrado */
+                height: 200px;
+                object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+            }
+        </style>
+        
+</body>
+</html>
